@@ -3,7 +3,19 @@ import cv2
 import os
 import pytesseract
 from PyPDF2 import PdfReader, PdfWriter
-video = cv2.VideoCapture('test.mov')
+
+print('~~~~~~~~~~~~~~~~~~~~~~~~~')
+print('     Faz PDF Wizard      ')
+print('~~~~~~~~~~~~~~~~~~~~~~~~~')
+print('Enter input video:')
+video_name = input()
+print('Enter output pdf:')
+pdf_name = input()
+print('~~~~~~~~~~~~~~~~~~~~~~~~~')
+print('starting...')
+
+
+video = cv2.VideoCapture(video_name)
 fps= video.get(cv2.CAP_PROP_FPS)
 
 frames = video.get(cv2.CAP_PROP_FRAME_COUNT)
@@ -46,7 +58,7 @@ for page in pdf_pages:
     print("Writing page")
     pdf_writer.add_page(insert)
   
-file = open('CodeOfPractice-ElectricVehicleChargingEquipment.pdf', 'wb')
+file = open(pdf_name, 'wb')
 pdf_writer.write(file)
 file.close()
 
