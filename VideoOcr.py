@@ -48,7 +48,7 @@ while count < frames:
     prev_frame = frame_gray
     count += 5
 
-    
+print('~~~~~~~~~~~~~~~~~~~~~~~~~')
 pdf_writer = PdfWriter()
 for page in pdf_pages:
   pdf = PdfReader(io.BytesIO(page))
@@ -61,6 +61,6 @@ for page in pdf_pages:
 file = open(pdf_name, 'wb')
 pdf_writer.write(file)
 file.close()
-
-print('Collected Pages'+pdf_pages.__len__())
-print('Printed page count:'+pdf_writer.getNumPages())
+print('~~~~~~~~~~~~~~~~~~~~~~~~~')
+print('Collected Pages'+str(pdf_pages.__len__()))
+print('Printed page count:'+str(pdf_writer.getNumPages()))
